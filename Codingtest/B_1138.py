@@ -1,15 +1,13 @@
 n = int(input())
-
-arr = list(map(int, input().split()))
-answer = [0]*n
-
-for i in range(n):   
+h = list(map(int, input().split()))
+ans = [0] * n
+for p in range(1, n+1):
+    t = h[p-1]
     cnt = 0
-    for j in range(n):
-        if cnt == arr[i] and answer[j] == 0:
-            answer[j] = i + 1
+    for i in range(n):
+        if cnt == t and ans[i] == 0:
+            ans[i] = p
             break
-        elif answer[j] == 0:
+        elif ans[i] == 0:
             cnt += 1
-                
-print(' '.join(map(str, answer)))
+print(*ans)
